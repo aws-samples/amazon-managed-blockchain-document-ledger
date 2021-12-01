@@ -1,0 +1,35 @@
+{
+  "name": "document-ledger",
+  "version": "0.1.0",
+  "bin": {
+    "document-ledger": "bin/document-ledger.js"
+  },
+  "scripts": {
+    "cdk": "cdk",
+    "lint": "eslint chaincode/**/*.js lambdas/**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-plugin-import": "2.25.3",
+    "ts-node": "9.0.0",
+    "tslint": "6.1.3",
+    "typescript": "3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.132.0",
+    "@aws-cdk/aws-certificatemanager": "^1.132.0",
+    "@aws-cdk/aws-ec2": "^1.132.0",
+    "@aws-cdk/aws-ecr-assets": "^1.132.0",
+    "@aws-cdk/aws-ecs-patterns": "^1.132.0",
+    "@aws-cdk/aws-elasticloadbalancingv2": "^1.132.0",
+    "@aws-cdk/aws-iam": "^1.132.0",
+    "@aws-cdk/aws-lambda": "^1.132.0",
+    "@aws-cdk/aws-managedblockchain": "^1.132.0",
+    "@aws-cdk/aws-rds": "^1.132.0",
+    "@aws-cdk/aws-route53": "^1.132.0",
+    "@aws-cdk/aws-secretsmanager": "^1.132.0",
+    "@aws-cdk/core": "^1.132.0",
+    "@types/node": "10.17.27"
+  }
+}

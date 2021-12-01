@@ -1,0 +1,19 @@
+Organizations:
+    - &Org1
+        Name: %MEMBER_ID%
+        ID: %MEMBER_ID%
+        MSPDir: /opt/home/fabric-admin-certs
+        AnchorPeers:
+            - Host:
+              Port:
+
+Application: &ApplicationDefaults
+    Organizations:
+
+Profiles:
+    OneOrgChannel:
+        Consortium: AWSSystemConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1

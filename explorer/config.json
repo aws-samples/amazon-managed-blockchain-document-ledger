@@ -1,0 +1,8 @@
+{
+	"network-configs": {
+		"document-ledger": {
+			"name": "Document Ledger",
+			"profile": "./document-ledger.json"
+		}
+	}
+}

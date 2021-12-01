@@ -1,0 +1,95 @@
+{
+  "name": "document-ledger",
+  "version": "1.0.0",
+  "client": {
+    "tlsEnable": true,
+    "caCredential": {
+      "id": "admin",
+      "password": "%ADMIN_PASSWORD%"
+    },
+    "adminCredential": {
+      "id": "admin",
+      "password": "%EXPLORER_PASSWORD%",
+      "affiliation": "org1.department1"
+    },
+    "enableAuthentication": true,
+    "organization": "%MEMBER_ID%",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "6000"
+        },
+        "orderer": "6000"
+      }
+    }
+  },
+  "channels": {
+    "documents": {
+      "peers": {
+        "%PEER_ENDPOINT_NO_PORT%": {}
+      },
+      "connection": {
+        "timeout": {
+          "peer": {
+            "endorser": "6000",
+            "eventHub": "6000",
+            "eventReg": "6000"
+          }
+        }
+      }
+    }
+  },
+  "organizations": {
+    "%MEMBER_ID%": {
+      "mspid": "%MEMBER_ID%",
+      "fullpath": false,
+      "adminPrivateKey": {
+        "path": "%PRIVATE_KEY_FILENAME%"
+      },
+      "signedCert": {
+        "path": "%SIGNED_CERT_FILENAME%"
+      },
+      "certificateAuthorities": [
+        "ca-org1"
+      ],
+      "peers": [
+        "%PEER_ENDPOINT_NO_PORT%"
+      ]
+    }
+  },
+  "peers": {
+    "%PEER_ENDPOINT_NO_PORT%": {
+      "tlsCACerts": {
+        "path": "/opt/explorer/managedblockchain-tls-chain.pem"
+      },
+      "url": "grpcs://%PEER_ENDPOINT%",
+      "grpcOptions": {
+        "ssl-target-name-override": "%PEER_ENDPOINT_NO_PORT%",
+        "discovery-as-localhost": "false"
+      }
+    }
+  },
+  "orderers": {
+    "orderer": {
+      "tlsCACerts": {
+        "path": "/opt/explorer/managedblockchain-tls-chain.pem"
+      },
+      "url": "grpcs://%ORDERER_ENDPOINT%",
+      "grpcOptions": {
+        "ssl-target-name-override": "%ORDERER_ENDPOINT_NO_PORT%"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca-org1": {
+      "url": "https://%CA_ENDPOINT%",
+      "httpOptions": {
+        "verify": false
+      },
+      "tlsCACerts": {
+        "path": "/opt/explorer/managedblockchain-tls-chain.pem"
+      },
+      "caName": "%MEMBER_ID%"
+    }
+  }
+}
