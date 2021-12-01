@@ -6,7 +6,7 @@ cd "$(dirname ${BASH_SOURCE[0]})/.."
 
 echo "WARNING: This will completely destroy the entire solution. Enter YES to continue."
 read CONFIRMATION
-if [[ $CONFIRATION != YES ]]; then
+if [[ $CONFIRMATION != YES ]]; then
   exit
 fi
 
