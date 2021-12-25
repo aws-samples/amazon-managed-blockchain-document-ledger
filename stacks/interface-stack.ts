@@ -3,14 +3,15 @@
 
 import * as path from 'path';
 
-import * as cdk from '@aws-cdk/core';
-import * as apigateway from '@aws-cdk/aws-apigateway';
-import * as cm from '@aws-cdk/aws-certificatemanager';
-import * as ec2 from '@aws-cdk/aws-ec2';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as r53 from '@aws-cdk/aws-route53';
-import * as r53Targets from '@aws-cdk/aws-route53-targets';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
+import * as constructs from 'constructs';
+import * as cdk from 'aws-cdk-lib/core';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+import * as cm from 'aws-cdk-lib/aws-certificatemanager';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as r53 from 'aws-cdk-lib/aws-route53';
+import * as r53Targets from 'aws-cdk-lib/aws-route53-targets';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 
 
 import networkData from '../cdk.out/data/network.json';
@@ -20,7 +21,7 @@ import cloud9Data from '../cdk.out/data/cloud9.json';
 
 export class InterfaceStack extends cdk.Stack {
 
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: constructs.Construct, id: string, props?: cdk.StackProps) {
 
     super(scope, id, props);
 
@@ -167,7 +168,7 @@ export class InterfaceStack extends cdk.Stack {
     defaultVpcEndpoint.connections.allowFrom(cloud9SecurityGroup, ledgerPortRange);
 
     new cdk.CfnOutput(this, 'DefaultVpcEndpointSecurityGroup', {
-      value: defaultVpcEndpoint.securityGroupId,
+      value: defaultVpcEndpoint.connections.securityGroups[0].securityGroupId,
       exportName: 'DocumentLedgerDefaultVpcEndpointSecurityGroup',
       description: 'Security group associated with the VPC endpoint used to connect to the ledger',
     });

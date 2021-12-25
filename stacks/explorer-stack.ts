@@ -3,22 +3,23 @@
 
 import * as os from 'os';
 
-import * as cdk from '@aws-cdk/core';
-import * as cm from '@aws-cdk/aws-certificatemanager';
-import * as ec2 from '@aws-cdk/aws-ec2';
-import * as ecrAssets from '@aws-cdk/aws-ecr-assets';
-import * as ecs from '@aws-cdk/aws-ecs';
-import * as ecsPatterns from '@aws-cdk/aws-ecs-patterns';
-import * as elb from '@aws-cdk/aws-elasticloadbalancingv2';
-import * as rds from '@aws-cdk/aws-rds';
-import * as r53 from '@aws-cdk/aws-route53';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
+import * as constructs from 'constructs';
+import * as cdk from 'aws-cdk-lib/core';
+import * as cm from 'aws-cdk-lib/aws-certificatemanager';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import * as ecrAssets from 'aws-cdk-lib/aws-ecr-assets';
+import * as ecs from 'aws-cdk-lib/aws-ecs';
+import * as ecsPatterns from 'aws-cdk-lib/aws-ecs-patterns';
+import * as elb from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import * as rds from 'aws-cdk-lib/aws-rds';
+import * as r53 from 'aws-cdk-lib/aws-route53';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 
 import cloud9Data from '../cdk.out/data/cloud9.json';
 
 export class ExplorerStack extends cdk.Stack {
 
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: constructs.Construct, id: string, props?: cdk.StackProps) {
 
     super(scope, id, props);
 

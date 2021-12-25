@@ -16,8 +16,13 @@ if (( $VOLUME_SIZE < 50 )); then
 fi
 
 
-echo "Install OS packages"
+echo "Installing OS packages"
 sudo yum install -y postgresql
+
+
+echo "Installing latest CDK"
+npm uninstall -g cdk
+npm install -g aws-cdk
 
 
 echo "Installing Node dependencies"

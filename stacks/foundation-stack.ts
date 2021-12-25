@@ -1,13 +1,14 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import * as cdk from '@aws-cdk/core';
-import * as r53 from '@aws-cdk/aws-route53';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
+import * as constructs from 'constructs';
+import * as cdk from 'aws-cdk-lib/core';
+import * as r53 from 'aws-cdk-lib/aws-route53';
+import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 
 export class FoundationStack extends cdk.Stack {
 
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: constructs.Construct, id: string, props?: cdk.StackProps) {
 
     super(scope, id, props);
 

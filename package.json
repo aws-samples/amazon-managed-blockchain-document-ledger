@@ -9,6 +9,7 @@
     "lint": "eslint chaincode/**/*.js lambdas/**/*.js"
   },
   "devDependencies": {
+    "@types/node": "10.17.27",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-import": "2.25.3",
@@ -17,19 +18,7 @@
     "typescript": "3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.132.0",
-    "@aws-cdk/aws-certificatemanager": "^1.132.0",
-    "@aws-cdk/aws-ec2": "^1.132.0",
-    "@aws-cdk/aws-ecr-assets": "^1.132.0",
-    "@aws-cdk/aws-ecs-patterns": "^1.132.0",
-    "@aws-cdk/aws-elasticloadbalancingv2": "^1.132.0",
-    "@aws-cdk/aws-iam": "^1.132.0",
-    "@aws-cdk/aws-lambda": "^1.132.0",
-    "@aws-cdk/aws-managedblockchain": "^1.132.0",
-    "@aws-cdk/aws-rds": "^1.132.0",
-    "@aws-cdk/aws-route53": "^1.132.0",
-    "@aws-cdk/aws-secretsmanager": "^1.132.0",
-    "@aws-cdk/core": "^1.132.0",
-    "@types/node": "10.17.27"
+    "aws-cdk-lib": "2.0.0",
+    "constructs": "10.0.9"
   }
 }
