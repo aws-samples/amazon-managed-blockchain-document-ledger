@@ -2,7 +2,7 @@
   "name": "writer",
   "version": "0.0.1",
   "dependencies": {
-    "fabric-client": "1.4.18",
+    "fabric-client": "1.4.19",
     "uuid": "8.3.2"
   }
 }
