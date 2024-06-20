@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as cdk from 'aws-cdk-lib/core';
+import * as cdk from 'aws-cdk-lib'
 
 import { FoundationStack } from '../stacks/foundation-stack';
 import { LedgerStack } from '../stacks/ledger-stack';

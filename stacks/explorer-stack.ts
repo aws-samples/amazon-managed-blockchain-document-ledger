@@ -4,7 +4,7 @@
 import * as os from 'os';
 
 import * as constructs from 'constructs';
-import * as cdk from 'aws-cdk-lib/core';
+import * as cdk from 'aws-cdk-lib'
 import * as cm from 'aws-cdk-lib/aws-certificatemanager';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as ecrAssets from 'aws-cdk-lib/aws-ecr-assets';
@@ -51,7 +51,7 @@ export class ExplorerStack extends cdk.Stack {
     });
 
     const database = new rds.DatabaseInstance(this, 'Database', {
-      engine: rds.DatabaseInstanceEngine.postgres({version: rds.PostgresEngineVersion.VER_12}),
+      engine: rds.DatabaseInstanceEngine.postgres({version: rds.PostgresEngineVersion.VER_14_1}),
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE3, ec2.InstanceSize.SMALL),
       vpc: defaultVpc,
       vpcSubnets: {subnets: databaseSubnets},

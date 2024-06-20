@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT-0
 
 import * as constructs from 'constructs';
-import * as cdk from 'aws-cdk-lib/core';
+import * as cdk from 'aws-cdk-lib'
 import * as r53 from 'aws-cdk-lib/aws-route53';
 import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 

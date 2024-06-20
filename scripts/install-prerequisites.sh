@@ -17,7 +17,8 @@ fi
 
 
 echo "Installing OS packages"
-sudo yum install -y postgresql
+sudo amazon-linux-extras enable postgresql14
+sudo yum update && sudo yum install -y postgresql -y
 
 
 echo "Installing latest CDK"

@@ -4,7 +4,7 @@
 import * as path from 'path';
 
 import * as constructs from 'constructs';
-import * as cdk from 'aws-cdk-lib/core';
+import * as cdk from 'aws-cdk-lib'
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as cm from 'aws-cdk-lib/aws-certificatemanager';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
@@ -65,7 +65,7 @@ export class InterfaceStack extends cdk.Stack {
     });
 
     const authorizerFunction = new lambda.Function(this, 'ApiAuthorizerFunction', {
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       code: lambda.AssetCode.fromAsset(path.join(__dirname, '../lambdas/authorizer')),
       handler: 'index.handler',
       environment: {
@@ -79,7 +79,7 @@ export class InterfaceStack extends cdk.Stack {
     apiWriterToken.grantRead(authorizerFunction);
 
     const apiLambdaLayer = new lambda.LayerVersion(this, 'ApiLambdaLayer', {
-      compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
+      compatibleRuntimes: [lambda.Runtime.NODEJS_16_X],
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambdas/layer')),
     });
 
@@ -88,7 +88,7 @@ export class InterfaceStack extends cdk.Stack {
       vpcSubnets: {subnets: apiVpc.isolatedSubnets},
       memorySize: 256,
       timeout: cdk.Duration.seconds(10.0),
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       layers: [apiLambdaLayer],
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambdas/reader')),
       handler: 'index.handler',
@@ -109,7 +109,7 @@ export class InterfaceStack extends cdk.Stack {
       vpcSubnets: {subnets: apiVpc.isolatedSubnets},
       memorySize: 256,
       timeout: cdk.Duration.seconds(10.0),
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       layers: [apiLambdaLayer],
       code: lambda.Code.fromAsset(path.join(__dirname, '../lambdas/writer')),
       handler: 'index.handler',
